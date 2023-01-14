@@ -8,20 +8,22 @@ const ProductDetails = () => {
   let product = useSelector((state) => state.product);
   const { image, title, price, category, description } = product;
   const dispatch = useDispatch();
-  const fetchProductDetail = async (id) => {
-    const response = await axios
-      .get(`https://fakestoreapi.com/products/${id}`)
-      .catch((err) => {
-        console.log("Err: ", err);
-      });
-    dispatch(selectedProduct(response.data));
-  };
 
   useEffect(() => {
+    
+    const fetchProductDetail = async (id) => {
+      const response = await axios
+        .get(`https://fakestoreapi.com/products/${id}`)
+        .catch((err) => {
+          console.log("Err: ", err);
+        });
+      dispatch(selectedProduct(response.data));
+    };
     if (productId && productId !== "") fetchProductDetail(productId);
     return () => {
     dispatch(removeselectedProduct());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
   return (
     <div className="ui grid container">
@@ -33,12 +35,12 @@ const ProductDetails = () => {
             <div className="ui vertical divider"></div>
             <div className="middle aligned row">
               <div className="column lp">
-                <img className="ui fluid image" src={image} />
+                <img alt="" className="ui fluid image" src={image} />
               </div>
               <div className="column rp">
                 <h1>{title}</h1>
                 <h2>
-                  <a className="ui teal tag label">${price}</a>
+                  <button className="ui teal tag label">${price}</button>
                 </h2>
                 <h3 className="ui brown block header">{category}</h3>
                 <p>{description}</p>

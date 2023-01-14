@@ -9,13 +9,15 @@ const ProductListing = () =>{
     const products = useSelector ((state) => state)
     const dispatch = useDispatch();
    
-    const fetchProducts = async () => {
-       const response = await axios.get('https://fakestoreapi.com/products')
-       .catch(err => console.log(err))
-       dispatch(setProducts(response.data))
-    }
+
     useEffect(()=>{
+      const fetchProducts = async () => {
+        const response = await axios.get('https://fakestoreapi.com/products')
+        .catch(err => console.log(err))
+        dispatch(setProducts(response.data))
+     }
   fetchProducts()
+   // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 console.log('products', products)
 
