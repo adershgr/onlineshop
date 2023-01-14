@@ -1,3 +1,4 @@
+import React from "react";
 import Header from './containers/Header'
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
@@ -13,7 +14,7 @@ function App() {
         <Routes>
         {/* now creating routes*/}
         <Route path='/'  element={ <ProductListing />} />
-        <Route path='/product'  element={<ProductDetail />} />  {/* productId is also addded in route */}
+        <Route path='/product/:productId'  element={<ProductDetail />} /> 
         {/* route for 404 */}
         <Route> 404 Not Found!</Route>
         </Routes>
