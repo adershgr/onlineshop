@@ -22,6 +22,7 @@ const ProductComponent = () => {
                         </div>
                     </div>
                 </div>
+                <br></br>
                 </Link>
             </div>
             </div>

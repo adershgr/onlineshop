@@ -10,7 +10,7 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    
+
     const fetchProductDetail = async (id) => {
       const response = await axios
         .get(`https://fakestoreapi.com/products/${id}`)
@@ -54,6 +54,7 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
+        
       )}
     </div>
   );
